@@ -1,5 +1,6 @@
 # Copyright (c) 2016 Kaito Udagawa
 # Copyright (c) 2016-2020 3846masa
+# Copyright (c) 2020 Qusys
 # Released under the MIT license
 # https://opensource.org/licenses/MIT
 
@@ -23,6 +24,8 @@ RUN apk add --no-cache curl perl fontconfig-dev freetype-dev && \
       collection-latexextra \
       collection-fontsrecommended \
       collection-langjapanese \
+      collection-mathscience \
+      collection-xetex ctex\
       latexmk && \
     rm -fr /tmp/install-tl-unx && \
     apk del .fetch-deps
