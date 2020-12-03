@@ -1,33 +1,37 @@
-# paperist/alpine-texlive-ja
+# Qusys/alpine-texlive-ja-modern
 
-[![Docker Automated build](https://img.shields.io/docker/automated/paperist/alpine-texlive-ja.svg)](https://hub.docker.com/r/paperist/alpine-texlive-ja/)
-[![Docker Image Size](https://images.microbadger.com/badges/image/paperist/alpine-texlive-ja.svg)](https://microbadger.com/images/paperist/alpine-texlive-ja "Get your own image badge on microbadger.com")
-[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg)](https://github.com/RichardLitt/standard-readme)
+[![Info badge](https://images.microbadger.com/badges/qusys/alpine-texlive-ja-modern.svg)](https://microbadger.com/images/qusys/alpine-texlive-ja-modern)
 
-> Minimal TeX Live image for Japanese based on alpine
+> Modern TeX Live image for Japanese 
+Forked from [paperist/alpine-texlive-ja](https://github.com/Paperist/docker-alpine-texlive-ja) \(under the MIT License\).
 
-Forked from [umireon/docker-texci] \(under the MIT License\).
-
-[umireon/docker-texci]: https://github.com/umireon/docker-texci
 
 ## Table of Contents
 
-- [Install](#install)
-- [Usage](#usage)
-- [Contribute](#contribute)
-- [License](#license)
+- [Qusys/alpine-texlive-ja-modern](#qusysalpine-texlive-ja-modern)
+  - [Table of Contents](#table-of-contents)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Contribute](#contribute)
+  - [License](#license)
 
 ## Install
 
 ```bash
-docker pull paperist/alpine-texlive-ja
+qusys/alpine-texlive-ja-modern
 ```
 
 ## Usage
 
+You can use latexmk. This is a example which uses LuaLateX, BibTeX and index.
 ```bash
-$ docker run --rm -it -v $PWD:/workdir paperist/alpine-texlive-ja
-$ latexmk -C main.tex && latexmk main.tex && latexmk -c main.tex
+docker run --rm -it -v $PWD:/workdir qusys/alpine-texlive-ja-modern
+latexmk \
+-e '$latex=q/lualatex %O -synctex=1 -interaction=nonstopmode -file-line-error %S/' \
+-e '$bibtex=q/upbibtex %O %B/' \
+-e '$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/' \
+-e '$makeindex=q/upmendex %O -o %D %S/' \
+-jobname=ci_output -norc -gg -pdfdvi paper.tex
 ```
 
 ## Contribute
@@ -36,7 +40,7 @@ PRs accepted.
 
 ## License
 
-MIT © 3846masa
+MIT © Qusys
 
 
 
