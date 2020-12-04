@@ -1,6 +1,7 @@
 # Qusys/alpine-texlive-ja-modern
 
-[![Info badge](https://images.microbadger.com/badges/qusys/alpine-texlive-ja-modern.svg)](https://microbadger.com/images/qusys/alpine-texlive-ja-modern)
+[![](https://images.microbadger.com/badges/image/qusys/alpine-texlive-ja-modern.svg)](https://microbadger.com/images/qusys/alpine-texlive-ja-modern "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/qusys/alpine-texlive-ja-modern.svg)](https://microbadger.com/images/qusys/alpine-texlive-ja-modern "Get your own version badge on microbadger.com")
 
 > Modern TeX Live image for Japanese 
 Forked from [paperist/alpine-texlive-ja](https://github.com/Paperist/docker-alpine-texlive-ja) \(under the MIT License\).
