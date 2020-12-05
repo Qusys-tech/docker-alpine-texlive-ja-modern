@@ -24,15 +24,15 @@ qusys/alpine-texlive-ja-modern
 
 ## Usage
 
-You can use latexmk. This is a example which uses LuaLateX, BibTeX and index.
+You can use latexmk. This is a example which uses LuaLateX, upBibTeX and upmendex.
 ```bash
-docker run --rm -it -v $PWD:/workdir qusys/alpine-texlive-ja-modern
+docker run --rm -v $PWD:/workdir -it  qusys/alpine-texlive-ja-modern \
 latexmk \
 -e '$latex=q/lualatex %O -synctex=1 -interaction=nonstopmode -file-line-error %S/' \
 -e '$bibtex=q/upbibtex %O %B/' \
 -e '$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/' \
 -e '$makeindex=q/upmendex %O -o %D %S/' \
--jobname=ci_output -norc -gg -pdfdvi paper.tex
+-norc -gg -pdflua lualatex-test.tex
 ```
 
 ## Contribute
