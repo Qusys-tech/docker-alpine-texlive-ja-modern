@@ -35,6 +35,16 @@ latexmk \
 -norc -gg -pdflua lualatex-test.tex
 ```
 
+This is a example using XeLaTeX, upBibTeX and upmendex.
+```bash
+docker run --rm -v $$PWD:/workdir -it  alpine-texlive-ja-modern \
+latexmk \
+-e '$latex=q/xelatex %O -synctex=1 -interaction=nonstopmode -file-line-error %S/' \
+-e '$bibtex=q/upbibtex %O %B/' \
+-e '$biber=q/biber %O --bblencoding=utf8 -u -U --output_safechars %B/' \
+-e '$makeindex=q/upmendex %O -o %D %S/' \
+-norc -gg -pdfxe xelatex-test.tex
+```
 ## Contribute
 
 PRs accepted.
