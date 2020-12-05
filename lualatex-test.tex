@@ -1,0 +1,50 @@
+\documentclass[a4paper]{ltjsarticle}
+\usepackage{metalogo} %各種logo
+\usepackage{amsmath,amssymb}
+\usepackage{here}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{physics}
+\usepackage{algorithm, algpseudocode}
+\usepackage{bm}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+% tikzマクロ　
+% https://www.opt.mist.i.u-tokyo.ac.jp/~tasuku/tikz.html を参考にした.
+% https://eqseqs.hatenablog.com/entry/2019/10/11/092852 も見るとよい
+\newcommand{\highlight}[2][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){$\displaystyle #2$};}}
+\newcommand{\highlightcap}[3][yellow]{\tikz[baseline=(x.base)]{\node[rectangle,rounded corners,fill=#1!10](x){$\displaystyle #2$} node[below of=x, color=#1]{#3};}}
+
+\begin{document}
+    \title{{\LuaLaTeX} sample}
+    \author{Qusys}
+    \maketitle
+
+    This is a sample of {\LuaLaTeX}.
+    これは{\LuaLaTeX}のサンプル.
+
+    \section{Physics package test}
+    一般に流体は圧縮性を持つが, 圧縮性が無視できる遅い流れは単純化のために,
+    Physics packageを用いるとベクトルや偏微分が簡単にタイプセットできる.
+    Navier Stokes方程式\eqref{eq:ns}と連続の式\eqref{eq:continuous}を例に示す.
+    \begin{align}
+        \pdv{\vb*{u}}{t} +(\vb*{u}\cdot \grad)\vb*{u} &= -\frac{1}{\rho}\grad p +\nu \laplacian\vb*{u}
+        \label{eq:ns}\\
+        \div \vb*{u} &= 0
+        \label{eq:continuous}
+    \end{align}
+
+    \section{Tikz package Test}
+    最小二乗法は当てはめたい関数を
+    \begin{align}
+        f(\vb*{x}_i) = \sum_{j=1}^n a_{ij}x_{ij}
+    \end{align}
+    とすると係数の$a_{ij}$を求める. ベクトル表記すると
+    \begin{align}
+        \highlightcap[red]{\vb*{a}}{未知} \cdot \highlightcap[blue]{\vb*{x}_i}{既知}
+         = \highlightcap[blue]{y_i}{既知}
+    \end{align}
+\end{document}
